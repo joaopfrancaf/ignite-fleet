@@ -1,7 +1,8 @@
-import { Stack } from "expo-router";
+import { Slot, Stack } from "expo-router";
 import { useFonts, Roboto_400Regular, Roboto_700Bold } from "@expo-google-fonts/roboto";
 import Loading from "@/components/Loading";
 import { StatusBar } from "expo-status-bar";
+import {AppProvider, UserProvider} from "@realm/react"
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({Roboto_400Regular, Roboto_700Bold})
@@ -12,14 +13,14 @@ export default function RootLayout() {
     )
   }
 
+  const realmAppId = process.env.EXPO_PUBLIC_REALM_APP_ID || ""; // Provide a default value for process.env.EXPO_PUBLIC_REALM_APP_ID if it is undefined
+
   return (
-    <>
+    <AppProvider id={realmAppId}>
       <StatusBar
         style="light"
       />
-      <Stack screenOptions={{headerShown:false}}>
-        <Stack.Screen name="index" />
-      </Stack>
-    </>
+        <Slot/>
+    </AppProvider>
   );
 }
