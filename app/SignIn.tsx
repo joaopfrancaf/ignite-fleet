@@ -4,17 +4,18 @@ import backgroundimage from "../assets/images/background.png"
 import Button from "@/components/Button";
 import {GoogleSignin} from "@react-native-google-signin/google-signin"
 import { useState } from "react";
-import {Realm, useApp} from "@realm/react"
-import { Redirect } from "expo-router";
+import {Realm, useApp, useUser} from "@realm/react"
+import { Redirect, router } from "expo-router";
 
 GoogleSignin.configure({
   scopes: ["email", "profile"],
   webClientId: process.env.EXPO_PUBLIC_WEB_CLIENT_ID,
   iosClientId: process.env.EXPO_PUBLIC_IOS_CLIENT_ID
 })
-export default function Index() {
+export default function SignIn() {
   const [isAuth, setIsAuth] = useState(false)
   const app = useApp()
+
 
   async function handleGoogleSignIn() {
     try {

@@ -3,6 +3,7 @@ import { useFonts, Roboto_400Regular, Roboto_700Bold } from "@expo-google-fonts/
 import Loading from "@/components/Loading";
 import { StatusBar } from "expo-status-bar";
 import {AppProvider, UserProvider} from "@realm/react"
+import SignIn from "./SignIn";
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({Roboto_400Regular, Roboto_700Bold})
@@ -20,7 +21,11 @@ export default function RootLayout() {
       <StatusBar
         style="light"
       />
-        <Slot/>
+      <UserProvider fallback={SignIn}>
+        <Stack>
+          <Stack.Screen name="(home)"/>
+        </Stack>
+      </UserProvider>
     </AppProvider>
   );
 }
