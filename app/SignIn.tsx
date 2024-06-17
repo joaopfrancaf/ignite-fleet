@@ -5,7 +5,6 @@ import Button from "@/components/Button";
 import {GoogleSignin} from "@react-native-google-signin/google-signin"
 import { useState } from "react";
 import {Realm, useApp, useUser} from "@realm/react"
-import { Redirect, router } from "expo-router";
 
 GoogleSignin.configure({
   scopes: ["email", "profile"],

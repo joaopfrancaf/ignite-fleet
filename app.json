@@ -13,7 +13,8 @@
       "backgroundColor": "#202024"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.jfrancaf.ignitefleet"
     },
     "android": {
       "adaptiveIcon": {
@@ -33,6 +34,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "cea65bc8-137d-49cb-ba00-cff2c6bbcdeb"
+      }
     }
   }
 }
