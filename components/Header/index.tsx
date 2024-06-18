@@ -3,6 +3,7 @@ import tema from "../../constants/Colors"
 import {Power} from "phosphor-react-native"
 import { Image } from 'expo-image';
 import { useApp } from "@realm/react";
+import { GoogleSignin } from "@react-native-google-signin/google-signin";
 
 type props = {
     picture?: string,
@@ -13,6 +14,7 @@ export default function Header(user:props) {
     const app = useApp()
 
     function handleLogOut() {
+        GoogleSignin.signOut()
         app.currentUser?.logOut()
     }
 

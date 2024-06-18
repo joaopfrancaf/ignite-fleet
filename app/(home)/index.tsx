@@ -14,7 +14,7 @@ export default function Home() {
 
     return (
         <View style={style.container}>
-            <Header picture={user.profile.pictureUrl} name={user.profile.name} />
+            <Header picture={user?.profile.pictureUrl} name={user?.profile.name} />
 
             <View style={style.content}>
                 <CarStatus onPress={handleRegisterMovement}/>
